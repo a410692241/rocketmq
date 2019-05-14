@@ -11,6 +11,7 @@
     <modules>
         <module>rocketmq-consumer</module>
         <module>rocketmq-provider</module>
+        <module>rocketmq-api</module>
     </modules>
     <groupId>com.wei</groupId>
     <artifactId>rocketmq</artifactId>
@@ -23,11 +24,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

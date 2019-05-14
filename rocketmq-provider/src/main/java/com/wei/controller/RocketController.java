@@ -11,6 +11,7 @@ import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,9 +27,9 @@ public class RocketController {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @RequestMapping("/send/{msg}")
-    public void sendMsg(String msg) throws InterruptedException, RemotingException, MQClientException {
-        Message message = new Message(rocketmqConfig.getGroupName(),"Tag1",msg.getBytes());
+    @RequestMapping("/send")
+    public void sendMsg(String msg, String group) throws InterruptedException, RemotingException, MQClientException {
+        Message message = new Message(group,"Tag1",msg.getBytes());
         producer.send(message, new SendCallback() {
             @Override
             public void onSuccess(SendResult sendResult) {
@@ -42,5 +43,4 @@ public class RocketController {
         });
 
     }
-
 }
