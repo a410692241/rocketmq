@@ -1,0 +1,13 @@
+server:
+  port: 8085
+rocketmq:
+  default: true
+  comsumer:
+    groupName: TopicTest
+    namesrvAddr: localhost:9876
+  provider:
+    groupName: TopicTest
+    namesrvAddr: localhost:9876
+spring:
+  application:
+    name: TopicTest
