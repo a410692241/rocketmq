@@ -28,6 +28,7 @@ public class ConsumerConfigure implements ApplicationListener<ContextRefreshedEv
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(topic);
         consumer.setNamesrvAddr(consumerConfig.getNamesrvAddr());
         consumer.subscribe(topic, tag);
+
         // 开启内部类实现监听
         consumer.registerMessageListener(new MessageListenerConcurrently() {
             @Override
